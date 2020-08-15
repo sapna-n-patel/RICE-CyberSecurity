@@ -47,7 +47,7 @@ Listed here are the Playbooks utilized in the Deployment depicted above:
 
 ```
 
-
+### This document contains the following details:
 - Description of the Topology
 - Access Policies
 - ELK Configuration
@@ -60,23 +60,16 @@ Listed here are the Playbooks utilized in the Deployment depicted above:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available (provides redundancy for our DVWA server), in addition to restricting http/web traffic to the network.
-- What aspect of security do load balancers protect?
-- Load Balancers are intelligent network security devices that are responsible for effectively distributing the incoming network traffic to various servers in the network. Load balancers conduct continuous health checks on servers to ensure they can handle requests. Thus, in terms of the CIA triad, Load balancers protect the availability of resources. Load Balancing plays important role as it adds additional layers of security to network.
-        For Example: Protection against DDoS attack:
-        The load balancer can detect and drop distributed denial-        
-        of-service (DDoS) traffic before it gets to your website.
+Load balancing ensures that the application will be `highly available` (provides redundancy for our DVWA server), in addition to restricting `http/web` traffic to the network.
 
-- What is the advantage of a jump box?
-•	Having a Jump box on a network, such as the Jump_Box_Provisoner on the XCorp's Red Team Network Diagram, is advantageous because it acts as a gateway router between VMs. In turn, forcing traffic through a single node. 
-      - Securing and monitoring a single node is called fanning        
-        in. This process makes it simpler rather than having to   
-        secure and monitor each VM behind the gateway. 
-      - The jump box is exposed to the public internet, and in the case 
-  of XCorp's Red Team Network Diagram, is connected to the jump box’s  
-  SSH port (22). It controls access to the other machines by allowing   
-  connections from specific IP addresses and forwarding to those 
-  machines.              
+  - **What aspect of security do load balancers protect?**
+    - Load Balancers are intelligent network security devices that are responsible for effectively distributing the incoming network traffic to various servers in the network. Load balancers conduct continuous health checks on servers to ensure they can handle requests. Thus, in terms of the CIA triad, Load balancers protect the availability of resources. Load Balancing plays important role as it adds additional layers of security to network.
+    - For Example: Protection against DDoS attack: The load balancer can detect and drop distributed denial-of-service (DDoS) traffic before it gets to your website.
+
+  - **What is the advantage of a jump box?**
+    - Having a Jump box on a network, such as the Jump_Box_Provisoner on the XCorp's Red Team Network Diagram, is advantageous because it acts as a gateway router between VMs. In turn, forcing traffic through a single node. 
+    -Securing and monitoring a single node is called fanning in. This process makes it simpler rather than having to secure and monitor each VM behind the gateway. 
+    -The jump box is exposed to the public internet, and in the case of XCorp's Red Team Network Diagram, is connected to the jump box’s SSH port (22). It controls access to the other machines by allowing connections from specific IP addresses and forwarding to those machines.              
          
  
 
