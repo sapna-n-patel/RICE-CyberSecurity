@@ -47,10 +47,7 @@ Listed here are the Playbooks utilized in the Deployment depicted above:
 
 ```
 
----
 
-
-This document contains the following details:
 - Description of the Topology
 - Access Policies
 - ELK Configuration
@@ -65,8 +62,8 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available (provides redundancy for our DVWA server), in addition to restricting http/web traffic to the network.
 - What aspect of security do load balancers protect?
-•	Load Balancers are intelligent network security devices that are responsible for effectively distributing the incoming network traffic to various servers in the network. Load balancers conduct continuous health checks on servers to ensure they can handle requests. Thus, in terms of the CIA triad, Load balancers protect the availability of resources. Load Balancing plays important role as it adds additional layers of security to network.
-      - For Example: Protection against DDoS attack:
+- Load Balancers are intelligent network security devices that are responsible for effectively distributing the incoming network traffic to various servers in the network. Load balancers conduct continuous health checks on servers to ensure they can handle requests. Thus, in terms of the CIA triad, Load balancers protect the availability of resources. Load Balancing plays important role as it adds additional layers of security to network.
+        For Example: Protection against DDoS attack:
         The load balancer can detect and drop distributed denial-        
         of-service (DDoS) traffic before it gets to your website.
 
@@ -85,10 +82,7 @@ Load balancing ensures that the application will be highly available (provides r
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the metrics and system logs.
 -	What does Filebeat watch for?
-Filebeat module collects/ watches for and analyzes logs created by the system logging service of common Unix/Linux based distributions. Specifically, it logs information about the file system, including when and which files have changed.
- 
-Filebeat helps keep things simple by offering a lightweight way (low memory footprint) to forward and centralize logs and files, making the use of SSH unnecessary when you have a number of servers, virtual machines, and containers that generate logs. 
-
+Filebeat module collects/ watches for and analyzes logs created by the system logging service of common Unix/Linux based distributions. Specifically, it logs information about the file system, including when and which files have changed. Filebeat helps keep things simple by offering a lightweight way (low memory footprint) to forward and centralize logs and files, making the use of SSH unnecessary when you have a number of servers, virtual machines, and containers that generate logs. 
 
 -	What does Metricbeat record?
 Metricbeat collects/records metrics and statistics from the operating system and from services running on the server. 
@@ -108,13 +102,16 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
--|    Source    |   Source IP   | Source Port Ranges |   Destination   | Destination Port Ranges | Protocol | Action | Description                                                                            |
-|:------------:|:-------------:|:------------------:|:---------------:|-------------------------|----------|--------|----------------------------------------------------------------------------------------|
-| IP Addresses | 98.195.138.18 |         Any        | Virtual Network | 80                      | Any      | Allow  | Allow Port 80/ Internet from my public IP address of workstation into my internal Vnet |
-| IP Addresses | 98.195.138.18 |         Any        | Virtual Network | 3389                    | Any      | Allow  | Allow RDP from my public IP address                                                    |
-| IP Addresses |    10.0.0.4   |         Any        | Virtual Network | Any                     | Any      | Allow  | Allow SSH from Jump Box IP                                                             |
-| IP Addresses | 98.195.138.18 |         Any        | Virtual Network | 22                      | TCP      | Allow  | Allow access through SSH connection                                                    |
+Only the `Jump-Box-Provisioner` machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+
+| Source | Source IP | Source Port Ranges | Destination | Destination Port Ranges | Protocol | Action | Description |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| IP Addresses | 98.195.138.18 | Any | Virtual Network | 80 | Any | Allow | Allow Port 80/ Internet from my public IP address of workstation into my internal Vnet |
+| IP Addresses | 98.195.138.18 | Any | Virtual Network | 3389 | Any | Allow | Allow RDP from my public IP address |
+| IP Addresses | 10.0.0.4 | Any | Virtual Network | Any | Any | Allow | Allow SSH from Jump Box IP |
+| IP Addresses | 98.195.138.18 | Any | Virtual Network | 22 | TCP | Allow | Allow access through SSH connection |
+
+
 
 Machines within the network can only be accessed by _____.
 - _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
