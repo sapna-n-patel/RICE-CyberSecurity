@@ -218,10 +218,9 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- 
-- Copy the config file to the new vm.
-- Update the `host` file to include `New VM IP with 'ansible_python_interpreter=/usr/bin/python3'`
-- Run the playbook, and navigate to ELK server GUI, scroll to **Step 5: Module Status** and click **Check Data** to check that the installation worked as expected.
+- Copy the `configuration file` to the `playbook`.
+- Update the `configuation file` to include the `Elk VM IP`.
+- Run the playbook, and navigate to `Kibana` to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook?
