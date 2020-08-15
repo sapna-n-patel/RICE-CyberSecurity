@@ -97,8 +97,9 @@ The machines on the internal network are not exposed to the public Internet.
 - Only the `Load Balancer` can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
     - **98.195.138.18** (My personal IP)
     - **52.165.182.149** (Load Balancer IP)
+____
 
-###### *Aa example of how the Red-Team-NSG (Network-Security-Group) can be seen here:*
+###### *An example of how the Red-Team-NSG (Network-Security-Group) is setup can be seen here:*
 
 | Source | Source IP | Source Port Ranges | Destination | Destination Port Ranges | Protocol | Action | Description |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -107,6 +108,7 @@ The machines on the internal network are not exposed to the public Internet.
 | IP Addresses | 10.0.0.4 | Any | Virtual Network | Any | Any | Allow | Allow SSH from Jump Box IP |
 | IP Addresses | 98.195.138.18 | Any | Virtual Network | 22 | TCP | Allow | Allow access through SSH connection |
 
+____
 
 - Machines within the network can only be accessed by `Jump-Box-Provisioner`.
 - **Which machine did you allow to access your ELK VM?**
@@ -118,15 +120,18 @@ The machines on the internal network are not exposed to the public Internet.
 root@a33e3954dcda# cd /root/.ssh
 root@a33e3954dcda:/root/.ssh# ssh azadmin@10.1.0.4
 ```
-
+____
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name | Publicly Accessible | Allowed IP Addresses |
+|:-:|:-:|:-:|
+| Jump-Box-Provisioner | Yes | My Public IP Address: 98.195.138.18 |
+| Load Balancer | Yes | 52.165.182.149 |
+| Red-Web-1 (DVWA) | No | 10.0.0.4 |
+| Red-Web-2 (DVWA) | No | 10.0.0.4 |
+| ELK-VM | No | 10.0.0.4 10.0.0.5 10.0.0.6 |
 
+____
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we would have had to separately configure an Elasticsearch database, a Logstash server, and a Kibana server, wire them together, and then integrate them into the existing network. Which would have required 3 more Virtual Machines. Instead we are utilizing Ansible container to streamline/ simplify configuration and installation all at once.    
