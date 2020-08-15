@@ -64,25 +64,24 @@ Load balancing ensures that the application will be `highly available` (provides
 
   - **What aspect of security do load balancers protect?**
     - Load Balancers are intelligent network security devices that are responsible for effectively distributing the incoming network traffic to various servers in the network. Load balancers conduct continuous health checks on servers to ensure they can handle requests. Thus, in terms of the CIA triad, Load balancers protect the availability of resources. Load Balancing plays important role as it adds additional layers of security to network.
-    - For Example: Protection against DDoS attack: The load balancer can detect and drop distributed denial-of-service (DDoS) traffic before it gets to your website.
+         - For Example: Protection against DDoS attack: The load balancer can detect and drop distributed denial-of-service (DDoS) traffic before it gets to your website.
 
   - **What is the advantage of a jump box?**
     - Having a Jump box on a network, such as the Jump_Box_Provisoner on the XCorp's Red Team Network Diagram, is advantageous because it acts as a gateway router between VMs. In turn, forcing traffic through a single node. 
-    -Securing and monitoring a single node is called fanning in. This process makes it simpler rather than having to secure and monitor each VM behind the gateway. 
-    -The jump box is exposed to the public internet, and in the case of XCorp's Red Team Network Diagram, is connected to the jump box’s SSH port (22). It controls access to the other machines by allowing connections from specific IP addresses and forwarding to those machines.              
+         - Securing and monitoring a single node is called fanning in. This process makes it simpler rather than having to secure and monitor each VM behind the gateway. The jump box is exposed to the public internet, and in the case of XCorp's Red Team Network Diagram, is connected to the jump box’s SSH port (22). It controls access to the other machines by allowing connections from specific IP addresses and forwarding to those machines.              
          
  
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the metrics and system logs.
--	What does Filebeat watch for?
-Filebeat module collects/ watches for and analyzes logs created by the system logging service of common Unix/Linux based distributions. Specifically, it logs information about the file system, including when and which files have changed. Filebeat helps keep things simple by offering a lightweight way (low memory footprint) to forward and centralize logs and files, making the use of SSH unnecessary when you have a number of servers, virtual machines, and containers that generate logs. 
+  - **What does Filebeat watch for?**
+    - Filebeat module collects/ watches for and analyzes logs created by the system logging service of common Unix/Linux based distributions. Specifically, it logs information about the file system, including when and which files have changed. Filebeat helps keep things simple by offering a lightweight way (low memory footprint) to forward and centralize logs and files, making the use of SSH unnecessary when you have a number of servers, virtual machines, and containers that generate logs. 
 
--	What does Metricbeat record?
-Metricbeat collects/records metrics and statistics from the operating system and from services running on the server. 
-o	"A Lightweight Shipper for Metrics"
+  - **What does Metricbeat record?**
+    - Metricbeat collects/records metrics and statistics from the operating system and from services running on the server. 
 
-The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
+### *The configuration details of each machine may be found below.*
+
 
 |         Name         |     Function     | IP Address |   Operating System   |
 |:--------------------:|:----------------:|:----------:|:--------------------:|
