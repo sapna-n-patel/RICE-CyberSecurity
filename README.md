@@ -86,9 +86,9 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 |         Name         |     Function     | IP Address |   Operating System   |
 |:--------------------:|:----------------:|:----------:|:--------------------:|
 | Jump-Box-Provisioner |      Gateway     |  10.0.0.4  | Linux (ubuntu 18.04) |
-|       Red_Web_1      |       DVWA       |  10.0.0.5  | Linux (ubuntu 18.04) |
-|       Red_Web_2      |       DVWA       |  10.0.0.6  | Linux (ubuntu 18.04) |
-|        ELK_VM        | ELK Stack Server |  10.1.0.0  | Linux (ubuntu 18.04) |
+|       Red_Web_1      |       DVWA (Server)      |  10.0.0.5  | Linux (ubuntu 18.04) |
+|       Red_Web_2      |       DVWA (Server)       |  10.0.0.6  | Linux (ubuntu 18.04) |
+|        ELK_VM        | ELK Stack (Log-Server) |  10.1.0.0  | Linux (ubuntu 18.04) |
 
 ### Access Policies
 
