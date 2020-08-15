@@ -95,6 +95,9 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the `Jump-Box-Provisioner` machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- ** 98.195.138.18**
+
+##### *A table example of the Red-Team-NSG can be seen here:*
 
 | Source | Source IP | Source Port Ranges | Destination | Destination Port Ranges | Protocol | Action | Description |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -103,10 +106,16 @@ Only the `Jump-Box-Provisioner` machine can accept connections from the Internet
 | IP Addresses | 10.0.0.4 | Any | Virtual Network | Any | Any | Allow | Allow SSH from Jump Box IP |
 | IP Addresses | 98.195.138.18 | Any | Virtual Network | 22 | TCP | Allow | Allow access through SSH connection |
 
-
-
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by `ELK VM`.
+- **Which machine did you allow to access your ELK VM?**
+    - When configuring the ELK VM, I needed to ensure that my Local machine had access to the ELK stack web server running on port 5601. In my ELK-NSG, I created an incoming rule that allowed for TCP traffic over this port from my public IP address (98. 195. 138. 18).
+        - **note**: The Red-Team-NSG is set up to allow SSH from 10.0.0.4 (Jump-Box-Provisioner’s Private IP Address) to the Red-Team Virtual Network. This pertains to the ELK-Network because a Peer Connection is set up between the vNets. This will allow traffic to pass between vNets and regions. The connection that took place in this deployment was configured to allow traffic to pass in both directions. The ELK-VM must use the same SSH keys as the WebVM's. This is where the ssh keys were created on the Ansible container that's running on the Jump-Box-Provisioner.
+##### *SSH from the Ansible container shell (on the Jumpbox VM) to ELK-VM:*
+```bash
+#Example:
+root@a33e3954dcda# cd /root/.ssh
+root@a33e3954dcda:/root/.ssh# ssh azadmin@10.1.0.4
+```
 
 A summary of the access policies in place can be found in the table below.
 
