@@ -13,10 +13,12 @@ These files have been tested and used to generate a live ELK deployment on Azure
 Listed here are the Playbooks utilized in the Deployment depicted above:
 
   - [ELK-Install file](https://github.com/sapna-n-patel/RICE-CyberSecurity/blob/master/Ansible/Install-ELK.yml)
+  
+  - [Filebeat-playbook file](https://github.com/sapna-n-patel/RICE-CyberSecurity/blob/master/Ansible/Filebeat-playbook.yml)
 
   - [Metricbeat-playbook file](https://github.com/sapna-n-patel/RICE-CyberSecurity/blob/master/Ansible/Metricbeat-playbook.yml)
   
-  - [Filebeat-playbook file](https://github.com/sapna-n-patel/RICE-CyberSecurity/blob/master/Ansible/Filebeat-playbook.yml)
+ 
   
  ##### *An example of the Filebeat-playbook can be seen here:*
 ```bash
@@ -223,11 +225,15 @@ These Beats allow us to collect the following information from each machine:
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+    -**note:** The Filebeat installation instructions require you to create a Filebeat configuration file. This file is edited so that it has the correct settings to work with my current ELK server.
 
-SSH into the control node and follow the steps below:
-- Copy the `configuration file` to the `playbook`.
-- Update the `configuation file` to include the `Elk VM IP`.
-- Run the playbook, and navigate to `Kibana` to check that the installation worked as expected.
+
+
+##### SSH into the control node and follow the steps below:
+
+- Copy the `install-elk.yml` file to the `/etc/ansible/` directory on your ansible node machine (where ansible container is running).
+- Update the `install-elk.yml` file to reflect the hosts you would like to be affected by the ansible playbook (in this example, our host was called [elkservers] within the ansible hosts file)
+- Run the playbook (ansible-playbook install-elk.yml), and navigate to [your_elkserver_ip]:5601 to check that the installation worked as expected.
 
 **Which file is the playbook? Where do you copy it?**
  - The Filebeat-configuration is the playbook and you copy the `/etc/ansible/file/filebeat-configuration.yml` to the destination of the webserver's `/etc/filebeat/filebeat.yml`
@@ -242,7 +248,7 @@ SSH into the control node and follow the steps below:
 **Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?**
 
 - Edit the `/etc/ansible/host file` to add `webserver/elkserver ip addresses.`
-    - [webserevers] and [elk] are groups. When you run the playbooks with Ansible, you speficy which group to run them on. By this, you can run certain playbooks on some machines and not others. 
+    - [webservers] and [elk] are groups. When you run the playbooks with Ansible, you speficy which group to run them on. By this, you can run certain playbooks on some machines and not others. 
   
 **Which URL do you navigate to in order to check that the ELK server is running?**
 
@@ -257,3 +263,12 @@ http://[your.ELK-VM.External.IP]:5601/app/kibana.
 - On the same page, scroll to Step 5: Module Status and click Check Data.
 - Scroll to the bottom of the page and click Verify Incoming Data.
 
+### Resources
+
+Below are links to the Filebeat and Docker documentation. 
+- [Filebeat Container Documentation](https://www.elastic.co/beats/filebeat)
+- [Docker Commands Cheat Sheet](https://phoenixnap.com/kb/list-of-docker-commands-cheat-sheet)
+
+Resources if extra help is needed:
+- [Docker and Ansible Cloud Week Cheat Sheet](Resources/CheatSheet.md)
+- [Ansible Roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html)
